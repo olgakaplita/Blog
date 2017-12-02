@@ -1,2 +1,15 @@
 <h1>List Articles</h1>
-app/views/articles/index.html.erb
+<table>
+  <tr>
+    <td>Title</td>
+    <td>Text</td>
+    <td></td>
+  </tr>
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Show', article_path(article)%></td>
+    </tr>
+  <% end %>
+</table>
