@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #delete 'articles/:id', to: 'articles#destroy'
 
   resources :articles # zamiast tego co powyzej mozna zapisac tak i dziala:))))
-
+  resources :comments
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
