@@ -10,7 +10,7 @@ class Article < ApplicationRecord
   private
 
    def sanitize_tags(value)
-     values.downcase.split.uniq
+     value.downcase.split.uniq
    end
 
 end

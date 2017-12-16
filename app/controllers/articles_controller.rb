@@ -3,6 +3,11 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all.order(created_at: :desc)
+    if params[:q].present?
+      @articles = @articles.select do |article|
+        article.tags.include?(params[:q])
+      end
+    end
   end
 
   def new
