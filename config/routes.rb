@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'welcome/index'
 
   root 'welcome#index' #to jest metoda, ktora odwoluje sie do metody index, jest przerabiane na odpowiednia klase, wszystko jest w dokumentacji railsow. To jest odwolanie do controllera
