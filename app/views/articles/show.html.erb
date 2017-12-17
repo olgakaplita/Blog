@@ -10,6 +10,19 @@
   <%= @article.text %>
 </p>
 
+<% if @like.persisted? %>
+  <%= link_to "Unlike",  article_like_path(@article, @like), method: :delete %>
+<% else %>
+  <%= link_to "Like",  article_likes_path(@article), method: :post %>
+  <!-- <%= form_for([@article, @like]) do |f| %>
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary"%>
+    </div>
+  <% end %> -->
+<% end %>
+
+
+
 <h2>Comments</h2>
 <% @article.comments.each do |comment| %>
   <%= render 'comments/comment', comment: comment %>
