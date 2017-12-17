@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
     @article = Article.new(article_params)
     @article.author = current_user
-    
+
     if @article.save
       redirect_to article_path(@article)
     else
@@ -31,6 +31,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    if @article.author != current_user
+      redirect_to articles_path
+    end
   end
 
   def update
