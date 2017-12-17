@@ -1,9 +1,9 @@
 class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
-  validates :title, presence: true, length: { minimum: 5 }
-  add_reference :articles, :author
   belongs_to :author, class_name: "User"
-  add_foreign_key :articles, :users, column: :author_id
+  validates :title, presence: true, length: { minimum: 5 }
+
+
 
   def tags=(value)
     value = sanitize_tags(value) if value.is_a?(String)
