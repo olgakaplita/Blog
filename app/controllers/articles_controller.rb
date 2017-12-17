@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update
@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
 
   def authorize_article
     if @article.author != current_user
-      redirect_to articles_path
+      redirect_to articles_path, alert: "Idz sobie!"
     end
   end
 
