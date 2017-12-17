@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :authorize_article, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.all.order(created_at: :desc)
+    @articles = Article.includes(:author).order(created_at: :desc)
     if params[:q].present?
       @articles = @articles.select do |article|
         article.tags.include?(params[:q])
