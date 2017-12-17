@@ -57,9 +57,7 @@ class ArticlesController < ApplicationController
   end
 
   def authorize_article
-    if @article.author != current_user
-      redirect_to articles_path, alert: "Idz sobie!"
-    end
+    authorize @article
   end
 
   def find_article
