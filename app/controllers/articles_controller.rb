@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 
   def create
 
-    @article = Article.new(article_params)
+    @article = Article.new(permitted_attributes(Article))
     @article.author = current_user
 
     if @article.save
@@ -37,8 +37,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.attributes = article_params
-    if @article.save
+    if @article.update(permitted_attributes(@article))
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -52,9 +51,6 @@ class ArticlesController < ApplicationController
 
   private
 
-  def article_params
-    params.require(:article).permit(:title, :text, :tags)
-  end
 
   def authorize_article
     authorize @article
