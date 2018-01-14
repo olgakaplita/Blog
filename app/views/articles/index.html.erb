@@ -29,6 +29,7 @@
             class: "btn btn-xs btn-danger" %>
 
         <% end %>
+        <%= link_to "Summary", summary_article_path(article), class: "btn btn-xs btn-primary summary", id: "summary-#{article.id}" %>
       </div>
     </div>
   <% end %>

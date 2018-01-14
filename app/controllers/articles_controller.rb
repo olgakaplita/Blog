@@ -53,6 +53,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.json do
         render json: {
+          id: @article.id,
           likes: @article.likes.count,
           comments: @article.comments.count
         }

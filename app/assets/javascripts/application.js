@@ -25,7 +25,21 @@
 //
 //  });
 
-// window.addEventListener("load", function() {
+window.addEventListener("load", function() {
+  var elements = document.querySelectorAll('.summary');
+  for(var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener("click", function(e) {
+      e.preventDefault();
+      var request = new XMLHttpRequest();
+      request.open("GET", this.href + ".json");
+      request.responseType = "json";
+      request.addEventListener("load", function() {
+        alert(this.response);
+      });
+      request.send();
+    })
+  }
+});
 //   var request = new XMLHttpRequest()
 //   request.open("GET", "http://localhost:3000/test2.txt")
 //   request.responseType = 'json'
