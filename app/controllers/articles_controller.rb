@@ -4,9 +4,14 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.includes(:author).order(created_at: :desc)
-    if params[:q].present?
-      @articles = @articles.select do |article|
-        article.tags.include?(params[:q])
+    @articles = @articles.where("? = any(tags)", params[:q]) if params[:q].present?
+    respond_to do |format|
+      format.json do
+        render json: @articles
+      end
+
+      format.html do
+        render
       end
     end
   end
