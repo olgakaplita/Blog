@@ -34,7 +34,8 @@ window.addEventListener("load", function() {
       request.open("GET", this.href + ".json");
       request.responseType = "json";
       request.addEventListener("load", function() {
-        alert(this.response);
+        var summary = document.getElementById("summary-" + this.response.id)
+        summary.innerText = "Comments: " + this.response.comments + ".likes: " + this.response.likes;
       });
       request.send();
     })
