@@ -58,6 +58,6 @@ gem 'jquery-rails'
 gem 'devise'
 
 gem 'carrierwave', '~> 1.0'
-gem 'claudinary'
+gem 'cloudinary'
 
 gem "pundit"
