@@ -1,7 +1,7 @@
 class ArticlePolicy < ApplicationPolicy
 
   def permitted_attributes
-    [:title, :text, :tags]
+    [:title, :text, :banner]
   end
 
   def update?
