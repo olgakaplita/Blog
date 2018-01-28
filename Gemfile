@@ -53,6 +53,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "letter_opener"
   gem 'foreman', require: false
+  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -66,3 +67,4 @@ gem 'carrierwave', '~> 1.0'
 gem 'cloudinary'
 
 gem "pundit"
+gem 'sidekiq'
